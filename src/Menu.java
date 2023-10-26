@@ -71,7 +71,7 @@ public class Menu {
                 System.out.println("\n1 - Start new Game\n2 - Show Player info\n3 - Modify Character\n4 - Exit game");
                 int secondChoice = scanner.nextInt();
                 switch (secondChoice) {
-                    case 1 -> /*System.out.println("soonsoon")*/game.initBoard();
+                    case 1 -> /*System.out.println("soonsoon")*/game.playGame();
                     case 2 -> showPlayerInfo(player);
                     case 3 -> modifyCharacter();
                     case 4 -> {

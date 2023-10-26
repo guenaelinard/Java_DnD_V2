@@ -16,8 +16,4 @@ public class Sword extends OffensiveItem {
 
     //---------------------------------- TO STRING -----------------------------------
 
-    @Override
-    public String toString() {
-        return "You found a Sword\n Power : " + this.getWeaponAttackLevel();
-    }
 }

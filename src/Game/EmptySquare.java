@@ -4,6 +4,7 @@ public class EmptySquare implements iSquare {
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
+
     public EmptySquare() {
     }
 
@@ -12,5 +13,10 @@ public class EmptySquare implements iSquare {
     @Override
     public void interaction() {
         System.out.println("The echoes of your own footsteps reverberate maddeningly in the empty room...");
+    }
+
+    @Override
+    public String toString() {
+        return "Empty Square";
     }
 }

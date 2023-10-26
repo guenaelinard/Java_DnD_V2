@@ -6,7 +6,7 @@ import Items.weapons.Sword;
 
 import java.util.ArrayList;
 
-public class Game {
+public class Game implements iSquare {
     ArrayList<iSquare> board;
 
 
@@ -29,19 +29,29 @@ public class Game {
                 default -> board.add(new EmptySquare());
             }
         }
-        while (posPlayer < 64) {
-            movePlayer();
-            getCurrentSquare();
-            System.out.println("You arrived on Square " + posPlayer +".");
+    }
 
+
+    public void playGame(){
+        initBoard();
+        while (posPlayer < 64){
+            try {
+                movePlayer();
+                System.out.println("You arrived on Square " + posPlayer + " : an " + getCurrentSquare() +".");
+            } catch (outOfBoundsCharacterException e){
+                System.out.println("Bah alors mon reuf ?");
+            }
         }
     }
 
 
-    public void movePlayer() {
+    public void movePlayer() throws outOfBoundsCharacterException {
         int rollDice = (int) (Math.random() * 6 + 1);
         System.out.println("You rolled a " + rollDice);
         posPlayer += rollDice;
+        if (posPlayer > 63) {
+            throw new outOfBoundsCharacterException();
+        }
     }
 
 
@@ -56,6 +66,11 @@ public class Game {
 
     public void setPosPlayer(int posPlayer) {
         this.posPlayer = posPlayer;
+    }
+
+    @Override
+    public void interaction() {
+
     }
 }
 
