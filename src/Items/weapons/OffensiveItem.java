@@ -1,6 +1,8 @@
 package Items.weapons;
 
-public abstract class OffensiveItem {
+import Game.iSquare;
+
+public abstract class OffensiveItem implements iSquare {
 
     private String weaponName;
     private int weaponAttackLevel;
@@ -15,6 +17,14 @@ public abstract class OffensiveItem {
     public OffensiveItem(String name) {
         weaponName = name;
     }
+
+    //-------------------------------- METHODS --------------------------------
+
+    @Override
+    public void interaction() {
+
+    }
+
 
     //------------------------------------ GET/SET ----------------------------
 
@@ -33,7 +43,9 @@ public abstract class OffensiveItem {
         this.weaponAttackLevel = weaponAttackLevel;
     }
 
+
     //------------------------------------ TO STRING ----------------------------
+
     @Override
     public String toString() {
         return this.weaponName;

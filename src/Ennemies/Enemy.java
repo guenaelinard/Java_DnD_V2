@@ -1,18 +1,28 @@
 package Ennemies;
 
-public class Enemy {
+import Game.iSquare;
+
+public class Enemy implements iSquare {
 
 
     private String name;
     private int lifeLevel;
     private int strength;
 
-    public Enemy(String name){
-        this.name = name;
+    //---------------------------------------- CONSTRUCTORS -----------------------------------
+
+    public Enemy(){
     }
 
+    //-------------------------------- METHODS --------------------------------
+
+    @Override
+    public void interaction() {
+
+    }
 
     //-------------------------------- GET/SET --------------------------------
+
     public String getName() {
         return name;
     }
@@ -36,4 +46,6 @@ public class Enemy {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
+
 }

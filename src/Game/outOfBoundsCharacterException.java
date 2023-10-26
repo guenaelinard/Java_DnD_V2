@@ -1,3 +1,5 @@
+package Game;
+
 public class outOfBoundsCharacterException extends Exception{
 
     public outOfBoundsCharacterException(){

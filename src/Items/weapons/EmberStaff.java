@@ -2,7 +2,7 @@ package Items.weapons;
 
 public class EmberStaff extends OffensiveItem {
 
-    public EmberStaff(String name){
-        super(name, 8);
+    public EmberStaff(){
+        super("Ember Staff", 8);
     }
 }

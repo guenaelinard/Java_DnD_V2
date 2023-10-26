@@ -2,7 +2,7 @@ package Items.weapons;
 
 public class MandaleDeForain extends OffensiveItem {
 
-    public MandaleDeForain(String weaponName) {
-        super(weaponName, 15);
+    public MandaleDeForain() {
+        super("Mandale de Forain", 15);
     }
 }

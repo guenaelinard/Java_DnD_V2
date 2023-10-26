@@ -5,7 +5,7 @@ import Items.protections.DefensiveItem;
 import Items.weapons.MandaleDeForain;
 import Items.weapons.OffensiveItem;
 
-public abstract class Character { //création de ma classe avec ses keys
+public abstract class Player { //création de ma classe avec ses keys
     private String charClass;
     private String charName;
     private int charLifeLevel;
@@ -16,25 +16,26 @@ public abstract class Character { //création de ma classe avec ses keys
 
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
-    public Character() { //constructeur par défaut (sans paramètres)
+
+    public Player() { //constructeur par défaut (sans paramètres)
         charName = "Zob";
         charClass = "Monk";
         charLifeLevel = 15;
         charStrength = 15;
-        this.offensiveItem = new MandaleDeForain("Mandale de Forain");
-        this.defensiveItem = new Bracers("Bracers");
+        this.offensiveItem = new MandaleDeForain();
+        this.defensiveItem = new Bracers();
     }
 
-    public Character(String name) { //constructeur avec deux paramètres
+    public Player(String name) { //constructeur avec deux paramètres
         charName = name;
         charClass = "Monk";
         charLifeLevel = 15;
         charStrength = 15;
-        this.offensiveItem = new MandaleDeForain("Mandale de Forain");
-        this.defensiveItem = new Bracers("Bracers");
+        this.offensiveItem = new MandaleDeForain();
+        this.defensiveItem = new Bracers();
     }
 
-    public Character(String name, String jobClass, int lifeLevel, int Strength, OffensiveItem offensiveItem, DefensiveItem defensiveItem) { //constructeur complet
+    public Player(String name, String jobClass, int lifeLevel, int Strength, OffensiveItem offensiveItem, DefensiveItem defensiveItem) { //constructeur complet
         charName = name;
         charClass = jobClass;
         charLifeLevel = lifeLevel;

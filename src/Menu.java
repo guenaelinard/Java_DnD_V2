@@ -1,3 +1,4 @@
+import Characters.Player;
 import Characters.Monk;
 import Characters.Warrior;
 import Characters.Wizard;
@@ -11,8 +12,8 @@ public class Menu {
 
     private final Scanner scanner;
 
-    Character player;
-    Game game;
+    Player player;
+    Game game = new Game();
 
     //-------------------------------- CONSTRUCTORS ------------------------------------
 
@@ -36,7 +37,7 @@ public class Menu {
      * When a character is created, allows to show its stats, to modify it, start the game or quit.
      */
     public void displayMenu() { // Shows the Main Menu where you create your player
-        game.initBoard();
+        Game game = new Game();
         while (!exit) {
             System.out.println("\n██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗           ██████╗ ██╗ ██████╗███████╗");
             System.out.println("██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝    ██╗    ██╔══██╗██║██╔════╝██╔════");
@@ -70,7 +71,7 @@ public class Menu {
                 System.out.println("\n1 - Start new Game\n2 - Show Player info\n3 - Modify Character\n4 - Exit game");
                 int secondChoice = scanner.nextInt();
                 switch (secondChoice) {
-                    case 1 -> System.out.println("soonsoon");
+                    case 1 -> /*System.out.println("soonsoon")*/game.initBoard();
                     case 2 -> showPlayerInfo(player);
                     case 3 -> modifyCharacter();
                     case 4 -> {
@@ -97,7 +98,7 @@ public class Menu {
         }
     }
 
-    public void showPlayerInfo(Character player) { //Display character stats
+    public void showPlayerInfo(Player player) { //Display character stats
         System.out.println(player);
     }
 }

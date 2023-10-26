@@ -1,9 +1,13 @@
 package Items.protections;
 
-public abstract class DefensiveItem {
+import Game.iSquare;
+
+public abstract class DefensiveItem implements iSquare {
 
     private String defenseName;
     private int defenseProtectionLevel;
+
+    //---------------------------------------- CONSTRUCTORS -----------------------------------
 
 
     public DefensiveItem(String name, int protectionLevel) {
@@ -11,10 +15,13 @@ public abstract class DefensiveItem {
         defenseProtectionLevel = protectionLevel;
     }
 
-    public DefensiveItem(String name){
-        defenseName = name;
+    //-------------------------------- METHODS --------------------------------
+
+    @Override
+    public void interaction() {
     }
 
+    //------------------------------------ GET/SET ----------------------------
 
     public String getDefenseName() {
         return defenseName;
@@ -31,7 +38,7 @@ public abstract class DefensiveItem {
         this.defenseProtectionLevel = defenseProtectionLevel;
     }
 
-
+    //---------------------------------- TO STRING -----------------------------------
 
     @Override
     public String toString() {

@@ -2,7 +2,7 @@ package Items.protections;
 
 public class ProtectSpell extends DefensiveItem {
 
-    public ProtectSpell(String defenseName){
-        super(defenseName, 5);
+    public ProtectSpell(){
+        super("Spell : Protect", 5);
     }
 }
