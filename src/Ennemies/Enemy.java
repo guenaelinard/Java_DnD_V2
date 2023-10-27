@@ -1,5 +1,6 @@
 package Ennemies;
 
+import Characters.Player;
 import Game.iSquare;
 
 public class Enemy implements iSquare {
@@ -17,7 +18,7 @@ public class Enemy implements iSquare {
     //-------------------------------- METHODS --------------------------------
 
     @Override
-    public void interaction() {
+    public void interaction(Player player) {
 
     }
 

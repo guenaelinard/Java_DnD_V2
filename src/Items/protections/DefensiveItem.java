@@ -1,5 +1,6 @@
 package Items.protections;
 
+import Characters.Player;
 import Game.iSquare;
 
 public abstract class DefensiveItem implements iSquare {
@@ -18,7 +19,7 @@ public abstract class DefensiveItem implements iSquare {
     //-------------------------------- METHODS --------------------------------
 
     @Override
-    public void interaction() {
+    public void interaction(Player player) {
     }
 
     //------------------------------------ GET/SET ----------------------------

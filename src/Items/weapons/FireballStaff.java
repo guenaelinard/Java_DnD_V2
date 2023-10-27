@@ -2,23 +2,23 @@ package Items.weapons;
 
 import Characters.Player;
 
-public class Sword extends OffensiveItem {
+public class FireballStaff extends OffensiveItem{
 
     //-------------------------------- CONSTRUCTORS --------------------------------
-    public Sword(){
-        super("Sword", 5);
+    public FireballStaff(){
+        super("Fireball Staff", 8);
     }
 
     //-------------------------------- METHODS --------------------------------
 
     @Override
     public void interaction(Player player) {
-        System.out.println("You found a Sword ! (Attack Power : " + this.getWeaponAttackLevel() + ")");
-        if (!player.getCharClass().equals("Warrior")){
+        System.out.println("You found a Fireball Staff ! (Attack Power : " + this.getWeaponAttackLevel() + ")");
+        if (!player.getCharClass().equals("Wizard")){
             System.out.println("You can't equip this item.");
         } else {
-            player.setOffensiveItem(new Sword());
-            System.out.println("You've equipped the Sword.");
+            player.setOffensiveItem(new FireballStaff());
+            System.out.println("You've equipped the Fireball Staff.");
         }
     }
 

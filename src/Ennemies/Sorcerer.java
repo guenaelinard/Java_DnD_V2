@@ -2,28 +2,29 @@ package Ennemies;
 
 import Characters.Player;
 
-public class Gobbo extends Enemy {
+public class Sorcerer extends Enemy {
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
-    public Gobbo() {
-        this.setName("Gobbo");
-        this.setLifeLevel(3);
-        this.setStrength(1);
+
+    public Sorcerer(){
+        this.setName("Sorcerer");
+        this.setLifeLevel(9);
+        this.setStrength(3);
     }
 
     //-------------------------------- METHODS --------------------------------
 
     @Override
     public void interaction(Player player) {
-        System.out.println("A Gobbo stands in your way !");
+        System.out.println("A Sorcerer stands in your way !");
     }
-
 
     //---------------------------------- TO STRING -----------------------------------
-
     @Override
     public String toString() {
-        return "Gobbo\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getStrength();
+        return "Sorcerer\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getStrength();
     }
+
+
 }

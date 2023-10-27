@@ -1,5 +1,7 @@
 package Game;
 
+import Characters.Player;
+
 public class EmptySquare implements iSquare {
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
@@ -11,7 +13,7 @@ public class EmptySquare implements iSquare {
     //-------------------------------- METHODS --------------------------------
 
     @Override
-    public void interaction() {
+    public void interaction(Player player) {
         System.out.println("The echoes of your own footsteps reverberate maddeningly in the empty room...");
     }
 

@@ -1,5 +1,6 @@
 package Items.healing;
 
+import Characters.Player;
 import Game.iSquare;
 
 public abstract class HealingItems implements iSquare {
@@ -12,7 +13,7 @@ public abstract class HealingItems implements iSquare {
     //-------------------------------- METHODS --------------------------------
 
     @Override
-    public void interaction() {
+    public void interaction(Player player) {
 
     }
 

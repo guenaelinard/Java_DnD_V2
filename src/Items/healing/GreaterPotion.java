@@ -2,20 +2,21 @@ package Items.healing;
 
 import Characters.Player;
 
-public class LesserPotion extends HealingItems{
+public class GreaterPotion extends HealingItems {
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
 
-    public LesserPotion(){
-        this.name = "Lesser Potion of Healing";
-        this.healValue = 2;
+    public GreaterPotion(){
+        this.name = "Greater Potion of Healing";
+        this.healValue = 5;
     }
 
     //----------------------------------------- METHODS --------------------------------------
 
     @Override
     public void interaction(Player player) {
+
     }
 
 
@@ -28,7 +29,7 @@ public class LesserPotion extends HealingItems{
     //---------------------------------- TO STRING -----------------------------------
     @Override
     public String toString() {
-        return "You found a Lesser Potion of Healing ! (Healing power : " + healValue +")";
+        return "You found a Greater Potion of Healing ! (Healing power : " + healValue +")";
     }
 
 }

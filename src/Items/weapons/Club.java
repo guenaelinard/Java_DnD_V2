@@ -2,26 +2,27 @@ package Items.weapons;
 
 import Characters.Player;
 
-public class Sword extends OffensiveItem {
+public class Club extends OffensiveItem {
 
     //-------------------------------- CONSTRUCTORS --------------------------------
-    public Sword(){
-        super("Sword", 5);
+
+    public Club(){
+        super("Club", 3);
     }
 
     //-------------------------------- METHODS --------------------------------
-
     @Override
     public void interaction(Player player) {
-        System.out.println("You found a Sword ! (Attack Power : " + this.getWeaponAttackLevel() + ")");
+        System.out.println("You found a Club ! (Attack Power : " + this.getWeaponAttackLevel() + ")");
         if (!player.getCharClass().equals("Warrior")){
             System.out.println("You can't equip this item.");
         } else {
-            player.setOffensiveItem(new Sword());
-            System.out.println("You've equipped the Sword.");
+            player.setOffensiveItem(new Club());
+            System.out.println("You've equipped the Club.");
         }
     }
 
     //---------------------------------- TO STRING -----------------------------------
+
 
 }
