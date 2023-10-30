@@ -8,22 +8,24 @@ public class Sorcerer extends Enemy {
 
 
     public Sorcerer(){
-        this.setName("Sorcerer");
-        this.setLifeLevel(9);
-        this.setStrength(2);
+        this.setEnemyName("Sorcerer");
+        this.setEnemyLifeLevel(9);
+        this.setEnemyStrength(2);
     }
 
     //-------------------------------- METHODS --------------------------------
 
     @Override
     public void interaction(Player player) {
-        System.out.println("A Sorcerer stands in your way !");
+        System.out.println("A Sorcerer stands in your way !\n" + this);
+        super.interaction(player);
+
     }
 
     //---------------------------------- TO STRING -----------------------------------
     @Override
     public String toString() {
-        return "Sorcerer\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getStrength();
+        return "Sorcerer\n Health : " + this.getEnemyLifeLevel() + "\n Strength : " + this.getEnemyStrength();
     }
 
 

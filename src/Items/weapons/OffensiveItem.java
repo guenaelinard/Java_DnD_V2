@@ -27,7 +27,7 @@ public abstract class OffensiveItem implements iSquare {
     public void interaction(Player player) {
         if (player.getOffensiveItem().getWeaponAttackLevel() < this.getWeaponAttackLevel()) {
             player.setOffensiveItem(new FireballStaff());
-            System.out.println("You've equipped the Fireball Staff.");
+            System.out.println("You've equipped the " + this.weaponName + ".");
         } else if (player.getOffensiveItem().getWeaponAttackLevel() == this.getWeaponAttackLevel()) {
             System.out.println("Why bother ? The power of your current weapon is equal.");
         } else {

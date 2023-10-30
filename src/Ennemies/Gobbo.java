@@ -7,16 +7,17 @@ public class Gobbo extends Enemy {
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
     public Gobbo() {
-        this.setName("Gobbo");
-        this.setLifeLevel(6);
-        this.setStrength(1);
+        this.setEnemyName("Gobbo");
+        this.setEnemyLifeLevel(6);
+        this.setEnemyStrength(1);
     }
 
     //-------------------------------- METHODS --------------------------------
 
     @Override
     public void interaction(Player player) {
-        System.out.println("A Gobbo stands in your way !");
+        System.out.println("A Gobbo stands in your way !\n" + this);
+        super.interaction(player);
     }
 
 
@@ -24,6 +25,6 @@ public class Gobbo extends Enemy {
 
     @Override
     public String toString() {
-        return  this.getName() +"\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getStrength();
+        return  this.getEnemyName() +"\n Health : " + this.getEnemyLifeLevel() + "\n Strength : " + this.getEnemyStrength();
     }
 }

@@ -16,8 +16,9 @@ import java.util.*;
 public class Game implements iSquare {
     ArrayList<iSquare> board;
 
+    private int posPlayer;
 
-    int posPlayer;
+//    private boolean isPlayerDead = false;
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
@@ -27,7 +28,7 @@ public class Game implements iSquare {
     //-------------------------------- METHODS --------------------------------
     public void playGame(Player player) {
         initBoard();
-        while (posPlayer < 64) {
+        while (posPlayer < 64 && player.getCharLifeLevel() > 0) {
             try {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Enter 'd' to roll the dice.");
@@ -41,7 +42,6 @@ public class Game implements iSquare {
                 System.out.println(e.getMessage());
             }
         }
-
     }
 
     public void initBoard() {
@@ -78,6 +78,9 @@ public class Game implements iSquare {
         return board.get(posPlayer - 1);
     }
 
+//    public void playerDeath(Player player){
+//        isPlayerDead = true;
+//    }
 
     @Override
     public void interaction(Player player) {

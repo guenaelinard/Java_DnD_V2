@@ -9,6 +9,7 @@ public abstract class Player { //création de ma classe avec ses keys
     private int charLifeLevel;
     private int charMaxLife;
     private int charStrength;
+
     private int chatAttackLevel;
 
     private OffensiveItem offensiveItem;
@@ -58,7 +59,6 @@ public abstract class Player { //création de ma classe avec ses keys
     public String getCharClass() {
         return charClass;
     }
-
     public void setCharClass(String charClass) {
         this.charClass = charClass;
     }
@@ -66,7 +66,6 @@ public abstract class Player { //création de ma classe avec ses keys
     public String getCharName() {
         return charName;
     }
-
     public void setCharName(String charName) {
         this.charName = charName;
     }
@@ -74,7 +73,6 @@ public abstract class Player { //création de ma classe avec ses keys
     public int getCharLifeLevel() {
         return charLifeLevel;
     }
-
     public void setCharLifeLevel(int charLifeLevel) {
         this.charLifeLevel = charLifeLevel;
     }
@@ -82,7 +80,6 @@ public abstract class Player { //création de ma classe avec ses keys
     public int getCharMaxLife() {
         return charMaxLife;
     }
-
     public void setCharMaxLife(int charMaxLife) {
         this.charMaxLife = charMaxLife;
     }
@@ -90,23 +87,29 @@ public abstract class Player { //création de ma classe avec ses keys
     public int getCharStrength() {
         return charStrength;
     }
-
     public void setCharStrength(int charStrength) {
         this.charStrength = charStrength;
     }
+
+    public int getChatAttackLevel() {
+        return chatAttackLevel;
+    }
+    public void setChatAttackLevel(int chatAttackLevel) {
+        this.chatAttackLevel = chatAttackLevel;
+    }
+
     public void setOffensiveItem(OffensiveItem offensiveItem) {
         this.offensiveItem = offensiveItem;
+    }
+    public OffensiveItem getOffensiveItem() {
+        return offensiveItem;
     }
 
     public DefensiveItem getDefensiveItem() {
         return defensiveItem;
     }
-
     public void setDefensiveItem(DefensiveItem defensiveItem) {
         this.defensiveItem = defensiveItem;
-    }
-    public OffensiveItem getOffensiveItem() {
-        return offensiveItem;
     }
 
     //---------------------------------- TO STRING -----------------------------------

@@ -8,22 +8,23 @@ public class Dragon extends Enemy {
 
 
     public Dragon() {
-        this.setName("Dragon");
-        this.setLifeLevel(15);
-        this.setStrength(4);
+        this.setEnemyName("Dragon");
+        this.setEnemyLifeLevel(15);
+        this.setEnemyStrength(4);
     }
 
     //-------------------------------- METHODS --------------------------------
 
     @Override
     public void interaction(Player player) {
-        System.out.println("A Dragon stands in your way !");
+        System.out.println("A Dragon stands in your way !\n" + this);
+        super.interaction(player);
     }
 
     //---------------------------------- TO STRING -----------------------------------
 
     @Override
     public String toString() {
-        return "Dragon\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getStrength();
+        return "Dragon\n Health : " + this.getEnemyLifeLevel() + "\n Strength : " + this.getEnemyStrength();
     }
 }
