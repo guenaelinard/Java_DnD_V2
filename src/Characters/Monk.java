@@ -1,7 +1,7 @@
 package Characters;
 
-import Items.protections.Bracers;
-import Items.weapons.MandaleDeForain;
+import Items.protections.*;
+import Items.weapons.*;
 
 public class Monk extends Player {
 

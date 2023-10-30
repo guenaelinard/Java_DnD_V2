@@ -2,8 +2,8 @@ package Items.weapons;
 
 import Characters.Player;
 import Game.iSquare;
-import java.util.Scanner;
 
+import java.util.Scanner;
 
 public abstract class OffensiveItem implements iSquare {
 
@@ -25,6 +25,14 @@ public abstract class OffensiveItem implements iSquare {
 
     @Override
     public void interaction(Player player) {
+        if (player.getOffensiveItem().getWeaponAttackLevel() < this.getWeaponAttackLevel()) {
+            player.setOffensiveItem(new FireballStaff());
+            System.out.println("You've equipped the Fireball Staff.");
+        } else if (player.getOffensiveItem().getWeaponAttackLevel() == this.getWeaponAttackLevel()) {
+            System.out.println("Why bother ? The power of your current weapon is equal.");
+        } else {
+            System.out.println("However, your weapon is stronger.");
+        }
     }
 
 
@@ -41,6 +49,7 @@ public abstract class OffensiveItem implements iSquare {
     public int getWeaponAttackLevel() {
         return weaponAttackLevel;
     }
+
     public void setWeaponAttackLevel(int weaponAttackLevel) {
         this.weaponAttackLevel = weaponAttackLevel;
     }

@@ -11,8 +11,7 @@ import Items.weapons.FireballStaff;
 import Items.weapons.Sword;
 import Items.weapons.ThunderboltStaff;
 
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Game implements iSquare {
     ArrayList<iSquare> board;
@@ -60,6 +59,7 @@ public class Game implements iSquare {
                 case 28, 41 -> board.add(new GreaterPotion());
                 default -> board.add(new EmptySquare());
             }
+            Collections.shuffle(board);
         }
     }
 

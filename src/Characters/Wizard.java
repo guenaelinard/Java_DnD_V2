@@ -1,7 +1,7 @@
 package Characters;
 
-import Items.protections.ProtectSpell;
-import Items.weapons.EmberStaff;
+import Items.protections.*;
+import Items.weapons.*;
 
 
 public class Wizard extends Player {

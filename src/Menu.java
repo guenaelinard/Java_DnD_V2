@@ -4,8 +4,8 @@ import Characters.Warrior;
 import Characters.Wizard;
 import Game.Game;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
+
 
 public class Menu {
 

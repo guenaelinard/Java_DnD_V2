@@ -5,7 +5,7 @@ import Characters.Player;
 public class EmberStaff extends OffensiveItem {
 
     public EmberStaff(){
-        super("Ember Staff", 8);
+        super("Ember Staff", 0);
     }
 
     @Override

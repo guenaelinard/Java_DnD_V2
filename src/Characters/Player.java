@@ -1,9 +1,7 @@
 package Characters;
 
-import Items.protections.Bracers;
-import Items.protections.DefensiveItem;
-import Items.weapons.MandaleDeForain;
-import Items.weapons.OffensiveItem;
+import Items.protections.*;
+import Items.weapons.*;
 
 public abstract class Player { //création de ma classe avec ses keys
     private String charClass;
@@ -11,6 +9,7 @@ public abstract class Player { //création de ma classe avec ses keys
     private int charLifeLevel;
     private int charMaxLife;
     private int charStrength;
+    private int chatAttackLevel;
 
     private OffensiveItem offensiveItem;
     private DefensiveItem defensiveItem;
@@ -25,6 +24,7 @@ public abstract class Player { //création de ma classe avec ses keys
         charStrength = 15;
         this.offensiveItem = new MandaleDeForain();
         this.defensiveItem = new Bracers();
+        this.chatAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
     }
 
     public Player(String name) { //constructeur avec deux paramètres
@@ -34,6 +34,8 @@ public abstract class Player { //création de ma classe avec ses keys
         charStrength = 15;
         this.offensiveItem = new MandaleDeForain();
         this.defensiveItem = new Bracers();
+        this.chatAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
+
     }
 
     public Player(String name, String jobClass, int lifeLevel, int maxHP, int Strength, OffensiveItem offensiveItem, DefensiveItem defensiveItem) { //constructeur complet
@@ -44,6 +46,8 @@ public abstract class Player { //création de ma classe avec ses keys
         charStrength = Strength;
         this.offensiveItem = offensiveItem;
         this.defensiveItem = defensiveItem;
+        this.chatAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
+
     }
 
     //-------------------------------- METHODS --------------------------------
@@ -114,6 +118,7 @@ public abstract class Player { //création de ma classe avec ses keys
                 "\n             Class : " + charClass +
                 "\n             LifePoints : " + charLifeLevel +
                 "\n             Strength : " + charStrength +
+                "\n             Attack Level : " + chatAttackLevel +
                 "\n             Weapon : " + this.offensiveItem +
                 "\n             Defense : " + this.defensiveItem;
 
