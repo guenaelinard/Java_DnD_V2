@@ -10,7 +10,7 @@ public class Sorcerer extends Enemy {
     public Sorcerer(){
         this.setName("Sorcerer");
         this.setLifeLevel(9);
-        this.setStrength(3);
+        this.setStrength(2);
     }
 
     //-------------------------------- METHODS --------------------------------

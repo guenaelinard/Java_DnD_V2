@@ -2,7 +2,7 @@ package Items.weapons;
 
 import Characters.Player;
 
-public class Sword extends OffensiveItem {
+public class Sword extends PhysicalWeapon {
 
     //-------------------------------- CONSTRUCTORS --------------------------------
     public Sword(){
@@ -13,13 +13,7 @@ public class Sword extends OffensiveItem {
 
     @Override
     public void interaction(Player player) {
-        System.out.println("You found a Sword ! (Attack Power : " + this.getWeaponAttackLevel() + ")");
-        if (!player.getCharClass().equals("Warrior")){
-            System.out.println("You can't equip this item.");
-        } else {
-            player.setOffensiveItem(new Sword());
-            System.out.println("You've equipped the Sword.");
-        }
+        super.interaction(player);
     }
 
     //---------------------------------- TO STRING -----------------------------------

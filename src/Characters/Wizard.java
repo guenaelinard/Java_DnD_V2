@@ -9,7 +9,7 @@ public class Wizard extends Player {
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
     public Wizard(String charName) {
-        super(charName, "Wizard", 5, 16, new EmberStaff(), new ProtectSpell());
+        super(charName, "Wizard", 3, 6, 8, new EmberStaff(), new ProtectSpell());
     }
 
 }

@@ -14,6 +14,18 @@ public abstract class HealingItems implements iSquare {
 
     @Override
     public void interaction(Player player) {
+        System.out.println("You found a " + this.name + ".");
+        if (player.getCharLifeLevel() == player.getCharMaxLife()) {
+            System.out.println("Your HP are already maxed out.");
+        } else if (player.getCharLifeLevel() < player.getCharMaxLife()) {
+            player.setCharLifeLevel(player.getCharLifeLevel() + this.healValue);
+            if (player.getCharLifeLevel() > player.getCharMaxLife()){
+                player.setCharLifeLevel(player.getCharMaxLife());
+                System.out.println("You're full life !");
+            } else {
+                System.out.println("You've regained " + this.healValue + "HP (" + player.getCharLifeLevel() + "HP).");
+            }
+        }
 
     }
 

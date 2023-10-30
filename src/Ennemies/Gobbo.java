@@ -8,7 +8,7 @@ public class Gobbo extends Enemy {
 
     public Gobbo() {
         this.setName("Gobbo");
-        this.setLifeLevel(3);
+        this.setLifeLevel(6);
         this.setStrength(1);
     }
 
@@ -24,6 +24,6 @@ public class Gobbo extends Enemy {
 
     @Override
     public String toString() {
-        return "Gobbo\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getStrength();
+        return  this.getName() +"\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getStrength();
     }
 }

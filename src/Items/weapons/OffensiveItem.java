@@ -2,6 +2,8 @@ package Items.weapons;
 
 import Characters.Player;
 import Game.iSquare;
+import java.util.Scanner;
+
 
 public abstract class OffensiveItem implements iSquare {
 
@@ -23,7 +25,6 @@ public abstract class OffensiveItem implements iSquare {
 
     @Override
     public void interaction(Player player) {
-
     }
 
 

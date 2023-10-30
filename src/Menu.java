@@ -4,6 +4,7 @@ import Characters.Warrior;
 import Characters.Wizard;
 import Game.Game;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -36,7 +37,7 @@ public class Menu {
      * setups the initial menu to create a character.
      * When a character is created, allows to show its stats, to modify it, start the game or quit.
      */
-    public void displayMenu() { // Shows the Main Menu where you create your player
+    public void displayMenu(){ // Shows the Main Menu where you create your player
         Game game = new Game();
         while (!exit) {
             System.out.println("\n██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗           ██████╗ ██╗ ██████╗███████╗");

@@ -9,6 +9,7 @@ public abstract class Player { //création de ma classe avec ses keys
     private String charClass;
     private String charName;
     private int charLifeLevel;
+    private int charMaxLife;
     private int charStrength;
 
     private OffensiveItem offensiveItem;
@@ -35,10 +36,11 @@ public abstract class Player { //création de ma classe avec ses keys
         this.defensiveItem = new Bracers();
     }
 
-    public Player(String name, String jobClass, int lifeLevel, int Strength, OffensiveItem offensiveItem, DefensiveItem defensiveItem) { //constructeur complet
+    public Player(String name, String jobClass, int lifeLevel, int maxHP, int Strength, OffensiveItem offensiveItem, DefensiveItem defensiveItem) { //constructeur complet
         charName = name;
         charClass = jobClass;
         charLifeLevel = lifeLevel;
+        charMaxLife = maxHP;
         charStrength = Strength;
         this.offensiveItem = offensiveItem;
         this.defensiveItem = defensiveItem;
@@ -71,6 +73,14 @@ public abstract class Player { //création de ma classe avec ses keys
 
     public void setCharLifeLevel(int charLifeLevel) {
         this.charLifeLevel = charLifeLevel;
+    }
+
+    public int getCharMaxLife() {
+        return charMaxLife;
+    }
+
+    public void setCharMaxLife(int charMaxLife) {
+        this.charMaxLife = charMaxLife;
     }
 
     public int getCharStrength() {

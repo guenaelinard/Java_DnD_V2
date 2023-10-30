@@ -16,6 +16,7 @@ public class LesserPotion extends HealingItems{
 
     @Override
     public void interaction(Player player) {
+        super.interaction(player);
     }
 
 
