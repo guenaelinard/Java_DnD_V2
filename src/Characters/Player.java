@@ -9,12 +9,11 @@ public abstract class Player { //création de ma classe avec ses keys
     private int charLifeLevel;
     private int charMaxLife;
     private int charStrength;
-
-    private int chatAttackLevel;
-
+    private int charAttackLevel;
     private OffensiveItem offensiveItem;
     private DefensiveItem defensiveItem;
-
+    private int posPlayer;
+    private boolean ranAwayFromFight;
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
@@ -25,7 +24,9 @@ public abstract class Player { //création de ma classe avec ses keys
         charStrength = 15;
         this.offensiveItem = new MandaleDeForain();
         this.defensiveItem = new Bracers();
-        this.chatAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
+        this.charAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
+        this.posPlayer = 1;
+        this.ranAwayFromFight = false;
     }
 
     public Player(String name) { //constructeur avec deux paramètres
@@ -35,8 +36,9 @@ public abstract class Player { //création de ma classe avec ses keys
         charStrength = 15;
         this.offensiveItem = new MandaleDeForain();
         this.defensiveItem = new Bracers();
-        this.chatAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
-
+        this.charAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
+        this.posPlayer = 1;
+        this.ranAwayFromFight = false;
     }
 
     public Player(String name, String jobClass, int lifeLevel, int maxHP, int Strength, OffensiveItem offensiveItem, DefensiveItem defensiveItem) { //constructeur complet
@@ -47,8 +49,9 @@ public abstract class Player { //création de ma classe avec ses keys
         charStrength = Strength;
         this.offensiveItem = offensiveItem;
         this.defensiveItem = defensiveItem;
-        this.chatAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
-
+        this.charAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
+        this.posPlayer = 1;
+        this.ranAwayFromFight = false;
     }
 
     //-------------------------------- METHODS --------------------------------
@@ -91,11 +94,11 @@ public abstract class Player { //création de ma classe avec ses keys
         this.charStrength = charStrength;
     }
 
-    public int getChatAttackLevel() {
-        return chatAttackLevel;
+    public int getCharAttackLevel() {
+        return charAttackLevel;
     }
-    public void setChatAttackLevel(int chatAttackLevel) {
-        this.chatAttackLevel = chatAttackLevel;
+    public void setCharAttackLevel(int charAttackLevel) {
+        this.charAttackLevel = charAttackLevel;
     }
 
     public void setOffensiveItem(OffensiveItem offensiveItem) {
@@ -111,6 +114,18 @@ public abstract class Player { //création de ma classe avec ses keys
     public void setDefensiveItem(DefensiveItem defensiveItem) {
         this.defensiveItem = defensiveItem;
     }
+    public int getPosPlayer() {
+        return posPlayer;
+    }
+    public void setPosPlayer(int posPlayer) {
+        this.posPlayer = posPlayer;
+    }
+    public boolean isRanAwayFromFight() {
+        return ranAwayFromFight;
+    }
+    public void setRanAwayFromFight(boolean ranAwayFromFight) {
+        this.ranAwayFromFight = ranAwayFromFight;
+    }
 
     //---------------------------------- TO STRING -----------------------------------
 
@@ -121,7 +136,7 @@ public abstract class Player { //création de ma classe avec ses keys
                 "\n             Class : " + charClass +
                 "\n             LifePoints : " + charLifeLevel +
                 "\n             Strength : " + charStrength +
-                "\n             Attack Level : " + chatAttackLevel +
+                "\n             Attack Level : " + charAttackLevel +
                 "\n             Weapon : " + this.offensiveItem +
                 "\n             Defense : " + this.defensiveItem;
 

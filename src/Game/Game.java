@@ -16,9 +16,7 @@ import java.util.*;
 public class Game implements iSquare {
     ArrayList<iSquare> board;
 
-    private int posPlayer;
-
-//    private boolean isPlayerDead = false;
+    private boolean gameIsOver = false;
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
@@ -26,21 +24,28 @@ public class Game implements iSquare {
     }
 
     //-------------------------------- METHODS --------------------------------
-    public void playGame(Player player) {
+    public void playGame(Player player) throws outOfBoundsCharacterException {
         initBoard();
-        while (posPlayer < 64 && player.getCharLifeLevel() > 0) {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("Enter 'd' to roll the dice.");
-                String rollDiceAction = scanner.next();
-                if (rollDiceAction.equalsIgnoreCase("d")) {
-                    movePlayer();
-                    System.out.println("You arrived on Square " + posPlayer);
-                    getCurrentSquare().interaction(player);
+        while (player.getPosPlayer() < 64 && player.getCharLifeLevel() > 0) {
+            if (!player.isRanAwayFromFight()) {
+                try {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Enter 'd' to roll the dice.");
+                    String rollDiceAction = scanner.next();
+                    if (rollDiceAction.equalsIgnoreCase("d")) {
+                        movePlayer(player);
+                        System.out.println("You arrived on Square " + player.getPosPlayer());
+                        getCurrentSquare(player).interaction(player);
+                    }
+                } catch (outOfBoundsCharacterException e) {
+                    System.out.println(e.getMessage());
                 }
-            } catch (outOfBoundsCharacterException e) {
-                System.out.println(e.getMessage());
+            } else {
+                runAwayFromFight(player);
+                player.setRanAwayFromFight(false);
             }
+        } if (player.getPosPlayer() == 64) {
+            System.out.println("You've beaten the Dungeon !");
         }
     }
 
@@ -64,23 +69,32 @@ public class Game implements iSquare {
     }
 
 
-    public void movePlayer() throws outOfBoundsCharacterException {
+    public void movePlayer(Player player) throws outOfBoundsCharacterException {
         int rollDice = (int) (Math.random() * 6 + 1);
         System.out.println("You rolled a " + rollDice);
-        posPlayer += rollDice;
-        if (posPlayer > 63) {
+        player.setPosPlayer(player.getPosPlayer() + rollDice);
+        if (player.getPosPlayer() > 63) {
+            throw new outOfBoundsCharacterException();
+        }
+    }
+    public void runAwayFromFight(Player player) throws outOfBoundsCharacterException {
+        int runAwayDice = (int) (Math.random() * 6 + 1);
+        player.setPosPlayer(player.getPosPlayer() - runAwayDice);
+        System.out.println("You ran away and went back to Square " + player.getPosPlayer() + "!");
+        if (player.getPosPlayer() < 0) {
             throw new outOfBoundsCharacterException();
         }
     }
 
 
-    public iSquare getCurrentSquare() {
-        return board.get(posPlayer - 1);
+    public iSquare getCurrentSquare(Player player) {
+        return board.get(player.getPosPlayer() - 1);
     }
 
 //    public void playerDeath(Player player){
 //        isPlayerDead = true;
 //    }
+
 
     @Override
     public void interaction(Player player) {
@@ -88,13 +102,6 @@ public class Game implements iSquare {
 
 
     //-------------------------------- GET/SET --------------------------------
-    public int getPosPlayer() {
-        return posPlayer;
-    }
-
-    public void setPosPlayer(int posPlayer) {
-        this.posPlayer = posPlayer;
-    }
 
 }
 

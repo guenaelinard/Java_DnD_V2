@@ -8,7 +8,7 @@ public class ThunderboltStaff extends OffensiveItem {
 
     //-------------------------------- CONSTRUCTORS --------------------------------
     public ThunderboltStaff() {
-        super("Thunderbolt Staff", 4);
+        super("Thunderbolt Staff", 2);
     }
 
     //-------------------------------- METHODS --------------------------------
@@ -31,6 +31,7 @@ public class ThunderboltStaff extends OffensiveItem {
             System.out.println("Your lone braincell does not compute.");
         }
     }
+
     //---------------------------------- TO STRING -----------------------------------
 
 }

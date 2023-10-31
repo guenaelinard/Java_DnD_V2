@@ -3,8 +3,6 @@ package Items.weapons;
 import Characters.Player;
 import Game.iSquare;
 
-import java.util.Scanner;
-
 public abstract class OffensiveItem implements iSquare {
 
     private String weaponName;
@@ -17,16 +15,15 @@ public abstract class OffensiveItem implements iSquare {
         weaponAttackLevel = attackLevel;
     }
 
-    public OffensiveItem(String name) {
-        weaponName = name;
-    }
 
     //-------------------------------- METHODS --------------------------------
 
     @Override
     public void interaction(Player player) {
         if (player.getOffensiveItem().getWeaponAttackLevel() < this.getWeaponAttackLevel()) {
-            player.setOffensiveItem(new FireballStaff());
+            player.getOffensiveItem().setWeaponName(this.weaponName);
+            player.getOffensiveItem().setWeaponAttackLevel((this.weaponAttackLevel));
+            player.setCharAttackLevel(player.getCharStrength()+this.getWeaponAttackLevel());
             System.out.println("You've equipped the " + this.weaponName + ".");
         } else if (player.getOffensiveItem().getWeaponAttackLevel() == this.getWeaponAttackLevel()) {
             System.out.println("Why bother ? The power of your current weapon is equal.");
