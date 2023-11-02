@@ -1,10 +1,12 @@
 package Characters;
 
+import Enemies.Enemy;
+import Game.Fighter;
 import Items.protections.*;
 import Items.weapons.*;
 
-public abstract class Player { //création de ma classe avec ses keys
-    private String charClass;
+public abstract class Player implements Fighter { //création de ma classe avec ses keys
+     String charClass;
     private String charName;
     private int charLifeLevel;
     private int charMaxLife;
@@ -18,7 +20,7 @@ public abstract class Player { //création de ma classe avec ses keys
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
     public Player() { //constructeur par défaut (sans paramètres)
-        charName = "Zob";
+        charName = "Mauricio";
         charClass = "Monk";
         charLifeLevel = 15;
         charStrength = 15;
@@ -56,20 +58,39 @@ public abstract class Player { //création de ma classe avec ses keys
 
     //-------------------------------- METHODS --------------------------------
 
+    public void reinitializePosPlayer(){
+        this.setPosPlayer(1);
+    }
+    @Override
+    public int attacks(){
+        return this.charAttackLevel;
+    }
+    @Override
+    public void receives(Fighter opponent){
+        this.charLifeLevel -= opponent.attacks();
+    }
+    @Override
+    public int getLifeLevel(){
+        return this.charLifeLevel;
+    }
+    @Override
+    public boolean isAlive(){
+        return this.charLifeLevel > 0;
+    }
 
     //-------------------------------- GET/SET --------------------------------
 
     public String getCharClass() {
         return charClass;
     }
-    public void setCharClass(String charClass) {
-        this.charClass = charClass;
+    public String setCharClass(String charClass){
+        return this.charClass = charClass;
     }
 
     public String getCharName() {
         return charName;
     }
-    public void setCharName(String charName) {
+    protected void setCharName(String charName) {
         this.charName = charName;
     }
 
@@ -83,14 +104,14 @@ public abstract class Player { //création de ma classe avec ses keys
     public int getCharMaxLife() {
         return charMaxLife;
     }
-    public void setCharMaxLife(int charMaxLife) {
+    protected void setCharMaxLife(int charMaxLife) {
         this.charMaxLife = charMaxLife;
     }
 
     public int getCharStrength() {
         return charStrength;
     }
-    public void setCharStrength(int charStrength) {
+    protected void setCharStrength(int charStrength) {
         this.charStrength = charStrength;
     }
 
@@ -101,7 +122,7 @@ public abstract class Player { //création de ma classe avec ses keys
         this.charAttackLevel = charAttackLevel;
     }
 
-    public void setOffensiveItem(OffensiveItem offensiveItem) {
+    protected void setOffensiveItem(OffensiveItem offensiveItem) {
         this.offensiveItem = offensiveItem;
     }
     public OffensiveItem getOffensiveItem() {
@@ -111,20 +132,22 @@ public abstract class Player { //création de ma classe avec ses keys
     public DefensiveItem getDefensiveItem() {
         return defensiveItem;
     }
-    public void setDefensiveItem(DefensiveItem defensiveItem) {
+    protected void setDefensiveItem(DefensiveItem defensiveItem) {
         this.defensiveItem = defensiveItem;
     }
+
     public int getPosPlayer() {
         return posPlayer;
     }
     public void setPosPlayer(int posPlayer) {
         this.posPlayer = posPlayer;
     }
+
     public boolean isRanAwayFromFight() {
         return ranAwayFromFight;
     }
-    public void setRanAwayFromFight(boolean ranAwayFromFight) {
-        this.ranAwayFromFight = ranAwayFromFight;
+    public boolean setRanAwayFromFight(boolean ranAwayFromFight) {
+        return this.ranAwayFromFight = ranAwayFromFight;
     }
 
     //---------------------------------- TO STRING -----------------------------------

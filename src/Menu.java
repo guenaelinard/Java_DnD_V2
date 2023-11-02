@@ -9,8 +9,8 @@ import java.util.*;
 
 public class Menu {
 
-    private boolean exit = false;
-    private final Scanner scanner;
+    protected boolean exit = false;
+    protected final Scanner scanner;
     Player player;
     Game game = new Game();
 

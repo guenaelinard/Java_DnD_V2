@@ -1,23 +1,22 @@
-package Ennemies;
+package Enemies;
 
 import Characters.Player;
 
-public class Dragon extends Enemy {
+public class Gobbo extends Enemy {
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
-
-    public Dragon() {
-        this.setEnemyName("Dragon");
-        this.setEnemyLifeLevel(15);
-        this.setEnemyStrength(4);
+    public Gobbo() {
+        this.setEnemyName("Gobbo");
+        this.setEnemyLifeLevel(6);
+        this.setEnemyStrength(1);
     }
 
     //-------------------------------- METHODS --------------------------------
 
     @Override
     public void interaction(Player player) {
-        System.out.println("A Dragon stands in your way !\n" + this);
+        System.out.println("A Gobbo stands in your way !\n" + this);
         super.interaction(player);
     }
 
@@ -25,6 +24,7 @@ public class Dragon extends Enemy {
 
     @Override
     public String toString() {
-        return "Dragon\n Health : " + this.getEnemyLifeLevel() + "\n Strength : " + this.getEnemyStrength();
+        return this.getEnemyName() + "\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getEnemyStrength();
     }
+
 }

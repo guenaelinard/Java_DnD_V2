@@ -13,6 +13,15 @@ public class Club extends OffensiveItem {
     }
 
     //-------------------------------- METHODS --------------------------------
+
+    public void checkWeaponCompatibilityForClass(Player player) {
+        if (!player.getCharClass().equals("Warrior")) {
+            System.out.println("You can't equip this item.");
+        } else {
+            super.interaction(player);
+        }
+    }
+
     @Override
     public void interaction(Player player) {
         System.out.println("You found a " + this.getWeaponName() + " ! (Attack Power : " + this.getWeaponAttackLevel() + ")");
@@ -20,11 +29,7 @@ public class Club extends OffensiveItem {
         Scanner scanner = new Scanner(System.in);
         String weaponChoice = scanner.next();
         if (weaponChoice.equalsIgnoreCase("yes") || weaponChoice.equalsIgnoreCase("y")) {
-            if (!player.getCharClass().equals("Warrior")) {
-                System.out.println("You can't equip this item.");
-            } else {
-                super.interaction(player);
-            }
+            checkWeaponCompatibilityForClass(player);
         } else if (weaponChoice.equalsIgnoreCase("no") || weaponChoice.equalsIgnoreCase("n")) {
             System.out.println("You leave the " + this.getWeaponName() + " behind.");
         } else {

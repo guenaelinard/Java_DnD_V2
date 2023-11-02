@@ -2,7 +2,7 @@ package Game;
 
 import Characters.Player;
 
-public class EmptySquare implements iSquare {
+public class EmptySquare implements ISquare {
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 

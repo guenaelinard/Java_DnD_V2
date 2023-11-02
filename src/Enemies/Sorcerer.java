@@ -1,30 +1,31 @@
-package Ennemies;
+package Enemies;
 
 import Characters.Player;
 
-public class Gobbo extends Enemy {
+public class Sorcerer extends Enemy {
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
-    public Gobbo() {
-        this.setEnemyName("Gobbo");
-        this.setEnemyLifeLevel(6);
-        this.setEnemyStrength(1);
+
+    public Sorcerer(){
+        this.setEnemyName("Sorcerer");
+        this.setEnemyLifeLevel(9);
+        this.setEnemyStrength(2);
     }
 
     //-------------------------------- METHODS --------------------------------
 
     @Override
     public void interaction(Player player) {
-        System.out.println("A Gobbo stands in your way !\n" + this);
+        System.out.println("A Sorcerer stands in your way !\n" + this);
         super.interaction(player);
+
     }
-
-
     //---------------------------------- TO STRING -----------------------------------
-
     @Override
     public String toString() {
-        return  this.getEnemyName() +"\n Health : " + this.getEnemyLifeLevel() + "\n Strength : " + this.getEnemyStrength();
+        return "Sorcerer\n Health : " + this.getLifeLevel() + "\n Strength : " + this.getEnemyStrength();
     }
+
+
 }

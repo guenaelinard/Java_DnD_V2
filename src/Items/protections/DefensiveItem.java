@@ -1,12 +1,12 @@
 package Items.protections;
 
 import Characters.Player;
-import Game.iSquare;
+import Game.ISquare;
 
-public abstract class DefensiveItem implements iSquare {
+public abstract class DefensiveItem implements ISquare {
 
-    private String defenseName;
-    private int defenseProtectionLevel;
+    protected String defenseName;
+    protected int defenseProtectionLevel;
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 

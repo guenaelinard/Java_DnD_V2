@@ -1,9 +1,9 @@
 package Game;
 
 import Characters.Player;
-import Ennemies.Dragon;
-import Ennemies.Gobbo;
-import Ennemies.Sorcerer;
+import Enemies.Dragon;
+import Enemies.Gobbo;
+import Enemies.Sorcerer;
 import Items.healing.GreaterPotion;
 import Items.healing.LesserPotion;
 import Items.weapons.Club;
@@ -13,10 +13,10 @@ import Items.weapons.ThunderboltStaff;
 
 import java.util.*;
 
-public class Game implements iSquare {
-    ArrayList<iSquare> board;
+public class Game implements ISquare {
+    protected ArrayList<ISquare> board;
 
-    private boolean gameIsOver = false;
+    protected boolean gameIsOver = false;
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
@@ -26,7 +26,8 @@ public class Game implements iSquare {
     //-------------------------------- METHODS --------------------------------
     public void playGame(Player player) throws outOfBoundsCharacterException {
         initBoard();
-        while (player.getPosPlayer() < 64 && player.getCharLifeLevel() > 0) {
+        gameIsOver = false;
+        while (player.getPosPlayer() < 64 && player.getCharLifeLevel() >= 0) {
             if (!player.isRanAwayFromFight()) {
                 try {
                     Scanner scanner = new Scanner(System.in);
@@ -34,23 +35,23 @@ public class Game implements iSquare {
                     String rollDiceAction = scanner.next();
                     if (rollDiceAction.equalsIgnoreCase("d")) {
                         movePlayer(player);
-                        System.out.println("You arrived on Square " + player.getPosPlayer());
-                        getCurrentSquare(player).interaction(player);
                     }
                 } catch (outOfBoundsCharacterException e) {
                     System.out.println(e.getMessage());
                 }
             } else {
                 runAwayFromFight(player);
-                player.setRanAwayFromFight(false);
             }
-        } if (player.getPosPlayer() == 64) {
-            System.out.println("You've beaten the Dungeon !");
+        } if (player.getPosPlayer() >= 64) {
+            victoryScreen();
+            initBoard();
+            player.reinitializePosPlayer();
         }
     }
 
+
     public void initBoard() {
-        board = new ArrayList<iSquare>();
+        board = new ArrayList<ISquare>();
         for (int i = 1; i < 64; i++) {
             switch (i) {
                 case 45, 52, 56, 62 -> board.add(new Dragon());
@@ -67,8 +68,6 @@ public class Game implements iSquare {
             Collections.shuffle(board);
         }
     }
-
-
     public void movePlayer(Player player) throws outOfBoundsCharacterException {
         int rollDice = (int) (Math.random() * 6 + 1);
         System.out.println("You rolled a " + rollDice);
@@ -76,7 +75,10 @@ public class Game implements iSquare {
         if (player.getPosPlayer() > 63) {
             throw new outOfBoundsCharacterException();
         }
+        System.out.println("You arrived on Square " + player.getPosPlayer());
+        getCurrentSquare(player).interaction(player);
     }
+
     public void runAwayFromFight(Player player) throws outOfBoundsCharacterException {
         int runAwayDice = (int) (Math.random() * 6 + 1);
         player.setPosPlayer(player.getPosPlayer() - runAwayDice);
@@ -84,16 +86,18 @@ public class Game implements iSquare {
         if (player.getPosPlayer() < 0) {
             throw new outOfBoundsCharacterException();
         }
+        player.setRanAwayFromFight(false);
     }
 
+    public void victoryScreen(){
+        gameIsOver = true;
+        System.out.println("You've vanquished the Dungeon !");
+    }
 
-    public iSquare getCurrentSquare(Player player) {
+    public ISquare getCurrentSquare(Player player) {
         return board.get(player.getPosPlayer() - 1);
     }
 
-//    public void playerDeath(Player player){
-//        isPlayerDead = true;
-//    }
 
 
     @Override

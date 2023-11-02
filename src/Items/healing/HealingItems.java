@@ -1,13 +1,13 @@
 package Items.healing;
 
 import Characters.Player;
-import Game.iSquare;
+import Game.ISquare;
 
-public abstract class HealingItems implements iSquare {
+public abstract class HealingItems implements ISquare {
 
-    String name;
+    protected String name;
 
-    int healValue;
+    protected int healValue;
 
 
     //-------------------------------- METHODS --------------------------------

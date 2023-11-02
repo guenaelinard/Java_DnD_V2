@@ -1,12 +1,12 @@
 package Items.weapons;
 
 import Characters.Player;
-import Game.iSquare;
+import Game.ISquare;
 
-public abstract class OffensiveItem implements iSquare {
+public abstract class OffensiveItem implements ISquare {
 
-    private String weaponName;
-    private int weaponAttackLevel;
+    protected String weaponName;
+    protected int weaponAttackLevel;
 
     //----------------------------------- CONSTRUCTORS ------------------------
 
@@ -18,12 +18,16 @@ public abstract class OffensiveItem implements iSquare {
 
     //-------------------------------- METHODS --------------------------------
 
+    public void checkNewWeapon(Player player) {
+        player.getOffensiveItem().setWeaponName(this.weaponName);
+        player.getOffensiveItem().setWeaponAttackLevel((this.weaponAttackLevel));
+        player.setCharAttackLevel(player.getCharStrength() + this.getWeaponAttackLevel());
+    }
+
     @Override
     public void interaction(Player player) {
         if (player.getOffensiveItem().getWeaponAttackLevel() < this.getWeaponAttackLevel()) {
-            player.getOffensiveItem().setWeaponName(this.weaponName);
-            player.getOffensiveItem().setWeaponAttackLevel((this.weaponAttackLevel));
-            player.setCharAttackLevel(player.getCharStrength()+this.getWeaponAttackLevel());
+            checkNewWeapon(player);
             System.out.println("You've equipped the " + this.weaponName + ".");
         } else if (player.getOffensiveItem().getWeaponAttackLevel() == this.getWeaponAttackLevel()) {
             System.out.println("Why bother ? The power of your current weapon is equal.");
