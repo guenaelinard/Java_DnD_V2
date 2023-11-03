@@ -1,7 +1,5 @@
-import BDD.DbCRUD;
 import Game.outOfBoundsCharacterException;
 
-import java.sql.SQLException;
 import java.util.*;
 
 
@@ -14,7 +12,7 @@ public class Main {
         Menu menu = new Menu(scanner);
         try {
         menu.displayMenu();
-        } catch (outOfBoundsCharacterException | SQLException e) {
+        } catch (outOfBoundsCharacterException e) {
             throw new RuntimeException(e);
         }
     }
