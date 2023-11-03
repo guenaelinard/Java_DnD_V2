@@ -110,7 +110,7 @@ public class Menu {
         System.out.println(player);
     }
 
-    public void addPlayerToDB() throws SQLException {
+    public void addPlayerToDB() {
         DbCRUD dbCRUD = new DbCRUD();
         try {
             dbCRUD.dbCreateHero(player);
