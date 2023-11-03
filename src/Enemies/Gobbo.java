@@ -7,9 +7,7 @@ public class Gobbo extends Enemy {
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
     public Gobbo() {
-        this.setEnemyName("Gobbo");
-        this.setEnemyLifeLevel(6);
-        this.setEnemyStrength(1);
+        super("Gobbo", 5, 1);
     }
 
     //-------------------------------- METHODS --------------------------------

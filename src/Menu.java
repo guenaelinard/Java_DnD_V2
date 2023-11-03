@@ -1,10 +1,13 @@
+import BDD.DbCRUD;
 import Characters.Player;
 import Characters.Monk;
 import Characters.Warrior;
 import Characters.Wizard;
 import Game.Game;
 import Game.outOfBoundsCharacterException;
+
 import java.util.*;
+import java.sql.*;
 
 
 public class Menu {
@@ -35,7 +38,7 @@ public class Menu {
      * setups the initial menu to create a character.
      * When a character is created, allows to show its stats, to modify it, start the game or quit.
      */
-    public void displayMenu() throws outOfBoundsCharacterException { // Shows the Main Menu where you create your player
+    public void displayMenu() throws outOfBoundsCharacterException, SQLException { // Shows the Main Menu where you create your player
         Game game = new Game();
         while (!exit) {
             System.out.println("\n██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗           ██████╗ ██╗ ██████╗███████╗");
@@ -62,6 +65,9 @@ public class Menu {
                     } else {
                         System.out.println("ERROR : Your class has been set by default.");
                         player = new Monk(playerName);
+                    }
+                    if (player != null) {
+                        addPlayerToDB();
                     }
                 }
                 case 2 -> {
@@ -102,6 +108,15 @@ public class Menu {
 
     public void showPlayerInfo(Player player) { //Display character stats
         System.out.println(player);
+    }
+
+    public void addPlayerToDB() throws SQLException {
+        DbCRUD dbCRUD = new DbCRUD();
+        try {
+            dbCRUD.dbCreateHero(player);
+        } catch (SQLException e) {
+            System.out.println("ERROR : failed to access Database ; " + e.getMessage());
+        }
     }
 }
 

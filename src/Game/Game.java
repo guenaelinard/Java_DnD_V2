@@ -45,7 +45,7 @@ public class Game implements ISquare {
         } if (player.getPosPlayer() >= 64) {
             victoryScreen();
             initBoard();
-            player.reinitializePosPlayer();
+
         }
     }
 

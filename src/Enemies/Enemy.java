@@ -17,7 +17,10 @@ public abstract class Enemy implements ISquare, Fighter {
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
-    public Enemy() {
+    public Enemy(String enemyName, int enemyLifeLevel, int enemyStrength) {
+        this.enemyName =enemyName;
+        this.enemyLifeLevel = enemyLifeLevel;
+        this.enemyStrength = enemyStrength;
     }
 
     //-------------------------------- METHODS --------------------------------

@@ -58,6 +58,11 @@ public abstract class Player implements Fighter { //création de ma classe avec 
 
     //-------------------------------- METHODS --------------------------------
 
+//    public void reinitializePlayer(Player player){
+//        if (player.getCharClass().equals("Warrior")){
+//            player = new Warrior(player.getCharName());
+//        }
+//    }
     public void reinitializePosPlayer(){
         this.setPosPlayer(1);
     }

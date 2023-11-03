@@ -8,9 +8,7 @@ public class Dragon extends Enemy {
 
 
     public Dragon() {
-        this.setEnemyName("Dragon");
-        this.setEnemyLifeLevel(15);
-        this.setEnemyStrength(4);
+    super("Dragon", 15, 4);
     }
 
     //-------------------------------- METHODS --------------------------------
