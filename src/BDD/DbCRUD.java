@@ -22,15 +22,13 @@ public class DbCRUD {
     }
 
     public void dbCreateHero(Player player) throws SQLException{
-        PreparedStatement prepStatement = dnd_db.prepareStatement("INSERT INTO players (name, class, lifeLevel, maxLife, strength, offensiveItemID, defensiveItemID, posPlayer) VALUES (?,?,?,?,?,?,?,?)");
+        PreparedStatement prepStatement = dnd_db.prepareStatement("INSERT INTO players (name, class, lifeLevel, strength, offensiveItemID, defensiveItemID) VALUES (?,?,?,?,?,?)");
         prepStatement.setString(1, player.getCharName());
         prepStatement.setString(2, player.getCharClass());
         prepStatement.setInt(3, player.getLifeLevel());
-        prepStatement.setInt(4, player.getCharMaxLife());
-        prepStatement.setInt(5, player.getCharStrength());
-        prepStatement.setString(6, player.getOffensiveItem().getWeaponName());
-        prepStatement.setString(7, player.getDefensiveItem().getDefenseName());
-        prepStatement.setInt(8, player.getPosPlayer());
+        prepStatement.setInt(4, player.getCharStrength());
+        prepStatement.setString(5, player.getOffensiveItem().getWeaponName());
+        prepStatement.setString(6, player.getDefensiveItem().getDefenseName());
         prepStatement.executeUpdate();
         prepStatement.close();
 
