@@ -13,6 +13,11 @@ public class Dragon extends Enemy {
 
     //-------------------------------- METHODS --------------------------------
 
+    /**
+     * Method used when a player is on the Dragon index in the ArrayList.
+     * @param player the current player who initiated the interaction.
+     *               inherited from the interface {@link Enemy}
+     */
     @Override
     public void interaction(Player player) {
         System.out.println("A Dragon stands in your way !\n" + this);

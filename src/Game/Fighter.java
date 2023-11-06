@@ -2,8 +2,8 @@ package Game;
 
 public interface Fighter {
 
-    int attacks();
-    void receives(Fighter opponent);
-    int getLifeLevel();
-    boolean isAlive();
+    public int attacks();
+    public void receives(Fighter opponent);
+    public int getLifeLevel();
+    public boolean isAlive();
 }

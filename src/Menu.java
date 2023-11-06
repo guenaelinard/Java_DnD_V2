@@ -15,7 +15,6 @@ public class Menu {
     protected boolean exit = false;
     protected final Scanner scanner;
     Player player;
-    Game game = new Game();
 
     //-------------------------------- CONSTRUCTORS ------------------------------------
 

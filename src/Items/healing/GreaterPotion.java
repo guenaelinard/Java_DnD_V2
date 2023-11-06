@@ -22,9 +22,7 @@ public class GreaterPotion extends HealingItems {
 
     //-------------------------------- GET/SET --------------------------------
 
-    public int getHealValue() {
-        return healValue;
-    }
+
 
     //---------------------------------- TO STRING -----------------------------------
     @Override

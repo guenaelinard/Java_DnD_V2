@@ -1,12 +1,11 @@
 package Characters;
 
-import Enemies.Enemy;
 import Game.Fighter;
 import Items.protections.*;
 import Items.weapons.*;
 
 public abstract class Player implements Fighter { //création de ma classe avec ses keys
-     String charClass;
+    private String charClass;
     private String charName;
     private int charLifeLevel;
     private int charMaxLife;
@@ -58,26 +57,39 @@ public abstract class Player implements Fighter { //création de ma classe avec 
 
     //-------------------------------- METHODS --------------------------------
 
-//    public void reinitializePlayer(Player player){
-//        if (player.getCharClass().equals("Warrior")){
-//            player = new Warrior(player.getCharName());
-//        }
-//    }
+
+    /**
+     * Method to reset the player's position at the end of a game.
+     */
     public void reinitializePosPlayer(){
         this.setPosPlayer(1);
     }
+
+    /**
+     *
+     * @return the player attack level (their strength plus their weapons')
+     *          inherited from the interface {@link Fighter}
+     */
     @Override
     public int attacks(){
         return this.charAttackLevel;
     }
+
+    /**
+     * Method to reduce the player's life points.
+     * @param opponent the enemy the player is dealing with.
+     *                 inherited from the interface {@link Fighter}
+     */
     @Override
     public void receives(Fighter opponent){
         this.charLifeLevel -= opponent.attacks();
     }
-    @Override
-    public int getLifeLevel(){
-        return this.charLifeLevel;
-    }
+
+    /**
+     * Method to return a boolean checking if the player life points are above 0 or not.
+     * @return a test if the player life points are above 0 or not.
+     *                 inherited from the interface {@link Fighter}
+     */
     @Override
     public boolean isAlive(){
         return this.charLifeLevel > 0;
@@ -85,6 +97,10 @@ public abstract class Player implements Fighter { //création de ma classe avec 
 
     //-------------------------------- GET/SET --------------------------------
 
+    @Override
+    public int getLifeLevel(){
+        return this.charLifeLevel;
+    }
     public String getCharClass() {
         return charClass;
     }
@@ -99,9 +115,7 @@ public abstract class Player implements Fighter { //création de ma classe avec 
         this.charName = charName;
     }
 
-    public int getCharLifeLevel() {
-        return charLifeLevel;
-    }
+
     public void setCharLifeLevel(int charLifeLevel) {
         this.charLifeLevel = charLifeLevel;
     }
@@ -151,12 +165,16 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     public boolean isRanAwayFromFight() {
         return ranAwayFromFight;
     }
-    public boolean setRanAwayFromFight(boolean ranAwayFromFight) {
-        return this.ranAwayFromFight = ranAwayFromFight;
+    public void setRanAwayFromFight(boolean ranAwayFromFight) {
+        this.ranAwayFromFight = ranAwayFromFight;
     }
 
     //---------------------------------- TO STRING -----------------------------------
 
+    /**
+     * Method used to get all the information usable by the player.
+     * @return all the usable information.
+     */
     @Override
     public String toString() { //Affichage des attributs du perso
         return "--             Player Info             --" +

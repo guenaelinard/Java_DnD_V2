@@ -27,7 +27,7 @@ public class Game implements ISquare {
     public void playGame(Player player) throws outOfBoundsCharacterException {
         initBoard();
         gameIsOver = false;
-        while (player.getPosPlayer() < 64 && player.getCharLifeLevel() >= 0) {
+        while (player.getPosPlayer() < 64 && player.getLifeLevel() >= 0) {
             if (!player.isRanAwayFromFight()) {
                 try {
                     Scanner scanner = new Scanner(System.in);

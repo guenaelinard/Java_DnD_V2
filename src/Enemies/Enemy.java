@@ -10,9 +10,9 @@ import java.util.Scanner;
 public abstract class Enemy implements ISquare, Fighter {
 
 
-    protected String enemyName;
-    protected int enemyLifeLevel;
-    protected int enemyStrength;
+    private final String enemyName;
+    private int enemyLifeLevel;
+    private final int enemyStrength;
 
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
@@ -25,9 +25,19 @@ public abstract class Enemy implements ISquare, Fighter {
 
     //-------------------------------- METHODS --------------------------------
 
+    /**
+     * Method to interact with the player.
+     * @param player the current player who initiated the interaction.
+     *               inherited from the interface {@link ISquare}
+     */
     public void interaction(Player player) {
         encounterPlayer(player);
     }
+
+    /**
+     * Method to attack the player and check if someone died afterward.
+     * @param player the player the enemy is attacking.
+     */
     public void enemyAttack(Player player) {
         if (this.isAlive()) {
             player.receives(this);
@@ -41,6 +51,11 @@ public abstract class Enemy implements ISquare, Fighter {
             System.out.println("You've slain the " + this.enemyName + " !");
         }
     }
+
+    /**
+     * Method to determine which action will the player do next.
+     * @param player the current player encountered.
+     */
     private void encounterPlayer(Player player) {
         Scanner scanner = new Scanner(System.in);
         while (this.isAlive() && player.isAlive() && !player.isRanAwayFromFight()) {
@@ -61,18 +76,33 @@ public abstract class Enemy implements ISquare, Fighter {
         }
     }
 
+    /**
+     * Method to reduce the enemy life points.
+     * @param opponent the player the enemy is dealing with.
+     */
     @Override
     public void receives(Fighter opponent){
         this.enemyLifeLevel -= opponent.attacks();
     }
-    @Override
+
+    /**
+     *
+     * @return the enemy strength.
+     *          inherited from the interface {@link Fighter}
+     */@Override
     public int attacks() {
         return this.enemyStrength;
     }
+
     @Override
     public int getLifeLevel() {
         return this.enemyLifeLevel;
     }
+
+    /**
+     * Method to return a boolean checking if the enemy life points are above 0 or not.
+     * @return a test if the enemy life points are above 0 or not.
+     */
     @Override
     public boolean isAlive() {
         return this.enemyLifeLevel > 0;
@@ -85,17 +115,6 @@ public abstract class Enemy implements ISquare, Fighter {
     }
     public int getEnemyStrength() {
         return enemyStrength;
-    }
-    protected void setEnemyName(String enemyName) {
-        this.enemyName = enemyName;
-    }
-
-    protected void setEnemyLifeLevel(int enemyLifeLevel) {
-        this.enemyLifeLevel = enemyLifeLevel;
-    }
-
-    protected void setEnemyStrength(int enemyStrength) {
-        this.enemyStrength = enemyStrength;
     }
 
 }

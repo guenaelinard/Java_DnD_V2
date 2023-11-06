@@ -1,9 +1,6 @@
 package Items.protections;
 
-import Characters.Player;
-import Game.ISquare;
-
-public abstract class DefensiveItem implements ISquare {
+public abstract class DefensiveItem{
 
     protected String defenseName;
     protected int defenseProtectionLevel;
@@ -18,9 +15,7 @@ public abstract class DefensiveItem implements ISquare {
 
     //-------------------------------- METHODS --------------------------------
 
-    @Override
-    public void interaction(Player player) {
-    }
+
 
     //------------------------------------ GET/SET ----------------------------
 

@@ -24,6 +24,11 @@ public abstract class OffensiveItem implements ISquare {
         player.setCharAttackLevel(player.getCharStrength() + this.getWeaponAttackLevel());
     }
 
+    /**
+     * Method to interact with the player and determine the output of it.
+     * @param player the current player who initiated the interaction.
+     *               inherited from the interface {@link ISquare}
+     */
     @Override
     public void interaction(Player player) {
         if (player.getOffensiveItem().getWeaponAttackLevel() < this.getWeaponAttackLevel()) {
