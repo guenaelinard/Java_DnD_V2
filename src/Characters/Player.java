@@ -61,56 +61,51 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     /**
      * Method to reset the player's position at the end of a game.
      */
-    public void reinitializePosPlayer(){
+    public void reinitializePosPlayer() {
         this.setPosPlayer(1);
     }
 
     /**
+     * Returns the attack level of the player.
      *
      * @return the player attack level (their strength plus their weapons')
-     *          inherited from the interface {@link Fighter}
      */
     @Override
-    public int attacks(){
+    public int attacks() {
         return this.charAttackLevel;
     }
 
     /**
      * Method to reduce the player's life points.
+     *
      * @param opponent the enemy the player is dealing with.
-     *                 inherited from the interface {@link Fighter}
+     * @see #attacks()
      */
     @Override
-    public void receives(Fighter opponent){
+    public void receives(Fighter opponent) {
         this.charLifeLevel -= opponent.attacks();
     }
 
-    /**
-     * Method to return a boolean checking if the player life points are above 0 or not.
-     * @return a test if the player life points are above 0 or not.
-     *                 inherited from the interface {@link Fighter}
-     */
-    @Override
-    public boolean isAlive(){
-        return this.charLifeLevel > 0;
-    }
 
     //-------------------------------- GET/SET --------------------------------
 
     @Override
-    public int getLifeLevel(){
+    public int getLifeLevel() {
         return this.charLifeLevel;
     }
+
     public String getCharClass() {
         return charClass;
     }
-    public String setCharClass(String charClass){
+
+    public String setCharClass(String charClass) {
         return this.charClass = charClass;
     }
 
     public String getCharName() {
         return charName;
     }
+
     protected void setCharName(String charName) {
         this.charName = charName;
     }
@@ -123,6 +118,7 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     public int getCharMaxLife() {
         return charMaxLife;
     }
+
     protected void setCharMaxLife(int charMaxLife) {
         this.charMaxLife = charMaxLife;
     }
@@ -130,6 +126,7 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     public int getCharStrength() {
         return charStrength;
     }
+
     protected void setCharStrength(int charStrength) {
         this.charStrength = charStrength;
     }
@@ -137,13 +134,15 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     public int getCharAttackLevel() {
         return charAttackLevel;
     }
+
     public void setCharAttackLevel(int charAttackLevel) {
         this.charAttackLevel = charAttackLevel;
     }
 
-    protected void setOffensiveItem(OffensiveItem offensiveItem) {
+    public void setOffensiveItem(OffensiveItem offensiveItem) {
         this.offensiveItem = offensiveItem;
     }
+
     public OffensiveItem getOffensiveItem() {
         return offensiveItem;
     }
@@ -151,6 +150,7 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     public DefensiveItem getDefensiveItem() {
         return defensiveItem;
     }
+
     protected void setDefensiveItem(DefensiveItem defensiveItem) {
         this.defensiveItem = defensiveItem;
     }
@@ -158,6 +158,7 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     public int getPosPlayer() {
         return posPlayer;
     }
+
     public void setPosPlayer(int posPlayer) {
         this.posPlayer = posPlayer;
     }
@@ -165,6 +166,7 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     public boolean isRanAwayFromFight() {
         return ranAwayFromFight;
     }
+
     public void setRanAwayFromFight(boolean ranAwayFromFight) {
         this.ranAwayFromFight = ranAwayFromFight;
     }
@@ -173,6 +175,7 @@ public abstract class Player implements Fighter { //création de ma classe avec 
 
     /**
      * Method used to get all the information usable by the player.
+     *
      * @return all the usable information.
      */
     @Override

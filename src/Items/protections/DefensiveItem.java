@@ -2,8 +2,8 @@ package Items.protections;
 
 public abstract class DefensiveItem{
 
-    protected String defenseName;
-    protected int defenseProtectionLevel;
+    private String defenseName;
+    private int defenseProtectionLevel;
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 

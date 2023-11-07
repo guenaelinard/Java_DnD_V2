@@ -14,8 +14,8 @@ public class EmptySquare implements ISquare {
 
     /**
      * Method to interact with the player and determine the output of it.
+     *
      * @param player the current player who initiated the interaction.
-     *               inherited from the interface {@link ISquare}
      */
     @Override
     public void interaction(Player player) {

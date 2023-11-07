@@ -23,7 +23,6 @@ public class GreaterPotion extends HealingItems {
     //-------------------------------- GET/SET --------------------------------
 
 
-
     //---------------------------------- TO STRING -----------------------------------
     @Override
     public String toString() {

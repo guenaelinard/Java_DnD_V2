@@ -42,7 +42,8 @@ public class Game implements ISquare {
             } else {
                 runAwayFromFight(player);
             }
-        } if (player.getPosPlayer() >= 64) {
+        }
+        if (player.getPosPlayer() >= 64) {
             victoryScreen();
             initBoard();
 
@@ -68,6 +69,7 @@ public class Game implements ISquare {
             Collections.shuffle(board);
         }
     }
+
     public void movePlayer(Player player) throws outOfBoundsCharacterException {
         int rollDice = (int) (Math.random() * 6 + 1);
         System.out.println("You rolled a " + rollDice);
@@ -89,7 +91,7 @@ public class Game implements ISquare {
         player.setRanAwayFromFight(false);
     }
 
-    public void victoryScreen(){
+    public void victoryScreen() {
         gameIsOver = true;
         System.out.println("You've vanquished the Dungeon !");
     }
@@ -97,7 +99,6 @@ public class Game implements ISquare {
     public ISquare getCurrentSquare(Player player) {
         return board.get(player.getPosPlayer() - 1);
     }
-
 
 
     @Override

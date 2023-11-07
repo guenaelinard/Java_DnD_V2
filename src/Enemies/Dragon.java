@@ -8,15 +8,15 @@ public class Dragon extends Enemy {
 
 
     public Dragon() {
-    super("Dragon", 15, 4);
+        super("Dragon", 15, 4);
     }
 
     //-------------------------------- METHODS --------------------------------
 
     /**
      * Method used when a player is on the Dragon index in the ArrayList.
+     *
      * @param player the current player who initiated the interaction.
-     *               inherited from the interface {@link Enemy}
      */
     @Override
     public void interaction(Player player) {

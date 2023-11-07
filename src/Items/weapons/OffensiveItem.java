@@ -5,8 +5,8 @@ import Game.ISquare;
 
 public abstract class OffensiveItem implements ISquare {
 
-    protected String weaponName;
-    protected int weaponAttackLevel;
+    private String weaponName;
+    private int weaponAttackLevel;
 
     //----------------------------------- CONSTRUCTORS ------------------------
 
