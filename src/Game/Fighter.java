@@ -2,11 +2,11 @@ package Game;
 
 public interface Fighter {
 
-    public int attacks();
+     int attacks();
 
-    public void receives(Fighter opponent);
+     void receives(Fighter opponent);
 
-    public int getLifeLevel();
+     int getLifeLevel();
 
     default boolean isAlive() {
         return this.getLifeLevel() > 0;

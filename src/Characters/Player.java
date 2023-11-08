@@ -13,33 +13,20 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     private int charAttackLevel;
     private OffensiveItem offensiveItem;
     private DefensiveItem defensiveItem;
-    private int posPlayer;
-    private boolean ranAwayFromFight;
+    private final int posPlayer = 1;
+    private final boolean ranAwayFromFight =false;
 
-    //---------------------------------------- CONSTRUCTORS -----------------------------------
 
     public Player() { //constructeur par défaut (sans paramètres)
-        charName = "Mauricio";
-        charClass = "Monk";
-        charLifeLevel = 15;
-        charStrength = 15;
-        this.offensiveItem = new MandaleDeForain();
-        this.defensiveItem = new Bracers();
+        this("Mauricio", "Monk", 15, 20, 15, new MandaleDeForain(), new Bracers());
         this.charAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
-        this.posPlayer = 1;
-        this.ranAwayFromFight = false;
     }
+    //---------------------------------------- CONSTRUCTORS -----------------------------------
 
     public Player(String name) { //constructeur avec deux paramètres
-        charName = name;
-        charClass = "Monk";
-        charLifeLevel = 15;
-        charStrength = 15;
-        this.offensiveItem = new MandaleDeForain();
-        this.defensiveItem = new Bracers();
+        this(name, "Monk", 15, 20, 15, new MandaleDeForain(), new Bracers());
+
         this.charAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
-        this.posPlayer = 1;
-        this.ranAwayFromFight = false;
     }
 
     public Player(String name, String jobClass, int lifeLevel, int maxHP, int Strength, OffensiveItem offensiveItem, DefensiveItem defensiveItem) { //constructeur complet
@@ -51,8 +38,6 @@ public abstract class Player implements Fighter { //création de ma classe avec 
         this.offensiveItem = offensiveItem;
         this.defensiveItem = defensiveItem;
         this.charAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
-        this.posPlayer = 1;
-        this.ranAwayFromFight = false;
     }
 
     //-------------------------------- METHODS --------------------------------

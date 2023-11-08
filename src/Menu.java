@@ -117,5 +117,9 @@ public class Menu {
             System.out.println("ERROR : failed to access Database ; " + e.getMessage());
         }
     }
+
+    public void deletePlayerFromDB(){
+
+    }
 }
 

@@ -43,7 +43,7 @@ public class Game implements ISquare {
                 runAwayFromFight(player);
             }
         }
-        if (player.getPosPlayer() >= 64) {
+        if (player.getPosPlayer() == 64) {
             victoryScreen();
             initBoard();
 
