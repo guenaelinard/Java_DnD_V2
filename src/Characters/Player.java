@@ -13,8 +13,8 @@ public abstract class Player implements Fighter { //création de ma classe avec 
     private int charAttackLevel;
     private OffensiveItem offensiveItem;
     private DefensiveItem defensiveItem;
-    private final int posPlayer = 1;
-    private final boolean ranAwayFromFight =false;
+    private static int posPlayer = 1;
+    private static boolean ranAwayFromFight =false;
 
 
     public Player() { //constructeur par défaut (sans paramètres)
@@ -25,7 +25,6 @@ public abstract class Player implements Fighter { //création de ma classe avec 
 
     public Player(String name) { //constructeur avec deux paramètres
         this(name, "Monk", 15, 20, 15, new MandaleDeForain(), new Bracers());
-
         this.charAttackLevel = charStrength + this.offensiveItem.getWeaponAttackLevel();
     }
 
