@@ -15,6 +15,7 @@ public class Menu {
     protected boolean exit = false;
     protected final Scanner scanner;
     Player player;
+    DbCRUD dbCRUD = new DbCRUD();
 
     //-------------------------------- CONSTRUCTORS ------------------------------------
 
@@ -47,7 +48,7 @@ public class Menu {
             System.out.println("██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║       ╚═╝    ██████╔╝██║╚██████╗███████╗");
             System.out.println("╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝              ╚═════╝ ╚═╝ ╚═════╝╚══════╝\n");
             System.out.println("Select : ");
-            System.out.println("1 - Create new Player\n2 - Exit game");
+            System.out.println("1 - Create new Player\n2 - Load existing Player\n3 - Exit game");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1 -> {
@@ -69,19 +70,21 @@ public class Menu {
                         addPlayerToDB();
                     }
                 }
-                case 2 -> {
+                case 2 -> loadPlayerFromDB(player, scanner);
+                case 3 -> {
                     exitGame();
                     System.out.println("Thank you for playing.");
                 }
             }
             while (!exit) {
-                System.out.println("\n1 - Start new Game\n2 - Show Player info\n3 - Modify Character\n4 - Exit game");
+                System.out.println("\n1 - Start new Game\n2 - Show Player info\n3 - Modify Character\n4 - Delete Saved Character\n5 - Exit game");
                 int secondChoice = scanner.nextInt();
                 switch (secondChoice) {
                     case 1 -> game.playGame(player);
                     case 2 -> showPlayerInfo(player);
                     case 3 -> modifyCharacter();
-                    case 4 -> {
+                    case 4 -> deletePlayerFromDB();
+                    case 5 -> {
                         exitGame();
                         System.out.println("Thank you for playing.");
                     }
@@ -109,8 +112,8 @@ public class Menu {
         System.out.println(player);
     }
 
+
     public void addPlayerToDB() {
-        DbCRUD dbCRUD = new DbCRUD();
         try {
             dbCRUD.dbCreateHero(player);
         } catch (SQLException e) {
@@ -118,8 +121,30 @@ public class Menu {
         }
     }
 
-    public void deletePlayerFromDB(){
+    public void loadPlayerFromDB(Player player, Scanner scanner) {
+        try {
+            dbCRUD.dbDisplayHeroes();
+            int playerChoice = scanner.nextInt();
+            dbCRUD.dbLoadExistingPlayer(player);
+        } catch (SQLException e) {
+            System.out.println("ERROR : failed to access Database ; " + e.getMessage());
+        }
+    }
 
+    public void displayPlayerFromDB(Scanner scanner) {
+        try {
+            dbCRUD.dbDisplayHeroes();
+        } catch (SQLException e) {
+            System.out.println("ERROR : failed to access Database ; " + e.getMessage());
+        }
+    }
+
+    public void deletePlayerFromDB() {
+        try {
+            dbCRUD.dbDeleteHero();
+        } catch (SQLException e) {
+            System.out.println("ERROR : failed to access Database ; " + e.getMessage());
+        }
     }
 }
 

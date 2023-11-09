@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class DbCRUD {
     private Connection dnd_db;
+    private DbConnector connector = DbConnector.getInstance();
 
     //---------------------------------------- CONSTRUCTORS -----------------------------------
 
@@ -22,8 +23,8 @@ public class DbCRUD {
         }
     }
 
-    public void dbCreateHero(Player player) throws SQLException{
-        PreparedStatement prepStatement = dnd_db.prepareStatement("INSERT INTO players (name, class, lifeLevel, strength, offensiveItemID, defensiveItemID) VALUES (?,?,?,?,?,?)");
+    public void dbCreateHero(Player player) throws SQLException {
+        PreparedStatement prepStatement = connector.getConnection().prepareStatement("INSERT INTO players (name, class, lifeLevel, strength, offensiveItemID, defensiveItemID) VALUES (?,?,?,?,?,?)");
         prepStatement.setString(1, player.getCharName());
         prepStatement.setString(2, player.getCharClass());
         prepStatement.setInt(3, player.getLifeLevel());
@@ -32,20 +33,35 @@ public class DbCRUD {
         prepStatement.setString(6, player.getDefensiveItem().getDefenseName());
         prepStatement.executeUpdate();
         prepStatement.close();
+        connector.getConnection().close();
+    }
+
+    public void dbLoadExistingPlayer(Player player) throws SQLException {
+        PreparedStatement prepStatement = dnd_db.prepareStatement("SELECT * FROM players WHERE id = ?");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the number of the character you want to play :");
+        int scannerChoice = scanner.nextInt();
 
     }
 
-//    public void dbDisplayHeroes() throws SQLException{
-//        PreparedStatement prepStatement = dnd_db.prepareStatement("SELECT * FROM `players`");
-//        ResultSet resultSet = prepStatement.executeQuery();
-//        while (resultSet.next()){
-//           String name = prepStatement.getString("name");
-//           String charClass = prepStatement.getString("class");
-//           int liveLevel = prepStatement.getInt("lifeLevel");
-//           int strength = prepStatement.getInt("strength");
-//        }
-//    }
-    public void dbDeleteHero() throws SQLException{
+
+
+    public void dbDisplayHeroes() throws SQLException {
+        PreparedStatement prepStatement = dnd_db.prepareStatement("SELECT * FROM players");
+        ResultSet resultSet = prepStatement.executeQuery();
+        while (resultSet.next()) {
+            int ID = resultSet.getInt("ID");
+            String name = resultSet.getString("name");
+            String charClass = resultSet.getString("class");
+            int liveLevel = resultSet.getInt("lifeLevel");
+            int strength = resultSet.getInt("strength");
+            System.out.println("\n     " + ID + "     Name : " + name + "     Class : " + charClass + "     LifePoints : " + liveLevel + "     Strength : " + strength);
+        }
+    }
+
+    public void dbDeleteHero() throws SQLException {
+        System.out.println("Please choose which character you want to delete :");
+        dbDisplayHeroes();
         Scanner scanner = new Scanner(System.in);
         int ScannerChoice = scanner.nextInt();
         PreparedStatement prepStatement = dnd_db.prepareStatement("DELETE FROM players WHERE id = ?");

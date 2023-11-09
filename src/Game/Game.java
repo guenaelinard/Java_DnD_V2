@@ -75,7 +75,7 @@ public class Game implements ISquare {
         System.out.println("You rolled a " + rollDice);
         player.setPosPlayer(player.getPosPlayer() + rollDice);
         if (player.getPosPlayer() > 63) {
-            throw new outOfBoundsCharacterException();
+            throw new outOfBoundsCharacterException(player);
         }
         System.out.println("You arrived on Square " + player.getPosPlayer());
         getCurrentSquare(player).interaction(player);
@@ -86,7 +86,7 @@ public class Game implements ISquare {
         player.setPosPlayer(player.getPosPlayer() - runAwayDice);
         System.out.println("You ran away and went back to Square " + player.getPosPlayer() + "!");
         if (player.getPosPlayer() < 0) {
-            throw new outOfBoundsCharacterException();
+            throw new outOfBoundsCharacterException(player);
         }
         player.setRanAwayFromFight(false);
     }
